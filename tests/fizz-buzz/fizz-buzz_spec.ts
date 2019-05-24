@@ -45,7 +45,13 @@ describe('Fizz Buzz', () => {
   it('fizzbuzz should not accept a number lower than 1', () => {
     should(() => {
       fizzbuzz(0);
-    }).throw('n should be bigger than 0')
+    }).throw('n should be bigger than 0');
+  });
+
+  it('fizzbuzz should not accept a number bigger than 100', () => {
+    should(() => {
+      fizzbuzz(100);
+    }).throw('n should be lower or equal to 100');
   });
 
 });

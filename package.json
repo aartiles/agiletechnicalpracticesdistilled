@@ -1,0 +1,38 @@
+{
+  "name": "agiletechnicalpracticesdistilled",
+  "version": "1.0.0",
+  "description": "Agile Technical Practices Distilled book's katas solutions",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build-ts": "tsc",
+    "test": "mocha tests/**/*_spec.ts --require ts-node/register --require source-map-support/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aartiles/agiletechnicalpracticesdistilled.git"
+  },
+  "keywords": [
+    "katas",
+    "tdd",
+    "refactor",
+    "xp",
+    "agile",
+    "typescript",
+    "nodejs"
+  ],
+  "author": "Alfredo Artiles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aartiles/agiletechnicalpracticesdistilled/issues"
+  },
+  "homepage": "https://github.com/aartiles/agiletechnicalpracticesdistilled#readme",
+  "devDependencies": {
+    "@types/mocha": "^5.2.6",
+    "should": "^13.2.3",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
+  }
+}

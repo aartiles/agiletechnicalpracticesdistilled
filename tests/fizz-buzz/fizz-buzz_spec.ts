@@ -1,6 +1,6 @@
 import should from 'should';
 
-describe('', () => {
+describe('Fizz Buzz', () => {
   it('', () => {
   });
 });

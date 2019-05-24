@@ -30,4 +30,8 @@ describe('Fizz Buzz', () => {
     should(fizzbuzz(5)).be.eql('Buzz');
   });
 
+  it('fizzbuzz of 10 should be "Buzz"', () => {
+    should(fizzbuzz(10)).be.eql('Buzz');
+  });
+
 });

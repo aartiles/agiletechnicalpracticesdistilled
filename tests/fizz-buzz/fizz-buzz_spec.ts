@@ -6,4 +6,8 @@ describe('Fizz Buzz', () => {
     should(fizzbuzz(1)).be.eql('1');
   });
 
+  it('fizzbuzz of 2 should be "2"', () => {
+    should(fizzbuzz(1)).be.eql('2');
+  });
+
 });

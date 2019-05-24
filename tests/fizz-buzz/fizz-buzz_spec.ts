@@ -42,4 +42,10 @@ describe('Fizz Buzz', () => {
     should(fizzbuzz(30)).be.eql('FizzBuzz');
   });
 
+  it('fizzbuzz should not accept a number lower than 1', () => {
+    should(() => {
+      fizzbuzz(0);
+    }).throw('n should be bigger than 0')
+  });
+
 });

@@ -50,7 +50,7 @@ describe('Fizz Buzz', () => {
 
   it('fizzbuzz should not accept a number bigger than 100', () => {
     should(() => {
-      fizzbuzz(100);
+      fizzbuzz(101);
     }).throw('n should be lower or equal to 100');
   });
 

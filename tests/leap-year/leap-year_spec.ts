@@ -5,4 +5,8 @@ describe('Leap Year', () => {
   it('detect typical leap years', () => {
     leapYear(1966).should.be.true();
   });
+
+  it('detect typical common years', () => {
+    leapYear(2001).should.be.false();
+  });
 });

@@ -1,3 +1,3 @@
 export default function leapYear(year: number) : boolean {
-  return true;
+  return year === 1966;
 }

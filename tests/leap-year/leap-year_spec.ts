@@ -12,6 +12,10 @@ describe('Leap Year', () => {
   });
 
   it('detect atypical common years', () => {
-    leapYear(2000).should.be.false();
+    leapYear(1900).should.be.false();
+  });
+
+  it('detect atypical leap years', () => {
+    leapYear(2000).should.be.true();
   });
 });

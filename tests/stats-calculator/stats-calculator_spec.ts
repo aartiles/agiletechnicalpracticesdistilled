@@ -48,4 +48,9 @@ describe('Stats Calculator', () => {
     statsCalculator.size().should.be.eql(6);
   });
 
+  it('should compute avg', () => {
+    const statsCalculator = new StatsCalculator([6, 9, 15, -2, 92, 11]);
+    statsCalculator.avg().should.be.eql(21.833333333333332);
+  });
+
 });

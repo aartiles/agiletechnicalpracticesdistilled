@@ -24,7 +24,12 @@ export default class StatsCalculator {
   }
 
   avg(): number {
-    return 0;
+    if (this.size() === 0) return 0;
+    return this.total() / this.size();
+  }
+
+  private total(): number {
+    return this.list.reduce((total, item) => total + item, 0);
   }
 
 }

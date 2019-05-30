@@ -33,5 +33,9 @@ describe('Stats Calculator', () => {
     statsCalculator.minimum().should.be.eql(-2);
   });
 
+  it('should compute minimum when all are positive numbers', () => {
+    const statsCalculator = new StatsCalculator([6, 9, 15, 2, 92, 11]);
+    statsCalculator.minimum().should.be.eql(2);
+  });
 
 });

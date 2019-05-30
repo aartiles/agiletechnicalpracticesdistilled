@@ -13,4 +13,8 @@ export default class StatsCalculator {
     return 0;
   }
 
+  size(): number {
+    return 0;
+  }
+
 }

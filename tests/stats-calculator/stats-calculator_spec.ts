@@ -12,4 +12,9 @@ describe('Stats Calculator', () => {
     statsCalculator.maximum().should.be.eql(0);
   });
 
+  it('number of elements of an empty list is zero', () => {
+    const statsCalculator = new StatsCalculator([]);
+    statsCalculator.size().should.be.eql(0);
+  });
+
 });

@@ -10,4 +10,8 @@ describe('Fibonacci', () => {
     fibonacci(2).should.be.eql(1); 
   });
 
+  it('should return 1 for the 3rd', () => {
+    fibonacci(2).should.be.eql(1); 
+  });
+
 });

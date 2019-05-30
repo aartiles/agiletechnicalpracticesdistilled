@@ -11,7 +11,17 @@ describe('Fibonacci', () => {
   });
 
   it('should return 1 for the 3rd', () => {
-    fibonacci(2).should.be.eql(1); 
+    fibonacci(3).should.be.eql(1); 
+  });
+
+  it('should get any position correctly', () => {
+    fibonacci(4).should.be.eql(2);
+    fibonacci(5).should.be.eql(3);
+    fibonacci(6).should.be.eql(5);
+    fibonacci(7).should.be.eql(8);
+    fibonacci(8).should.be.eql(13);
+    fibonacci(9).should.be.eql(21);
+    fibonacci(10).should.be.eql(34);
   });
 
 });

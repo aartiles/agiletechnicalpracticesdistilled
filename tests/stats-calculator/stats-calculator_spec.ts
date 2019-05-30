@@ -38,4 +38,9 @@ describe('Stats Calculator', () => {
     statsCalculator.minimum().should.be.eql(2);
   });
 
+  it('should compute maximum', () => {
+    const statsCalculator = new StatsCalculator([6, 9, 15, -2, 92, 11]);
+    statsCalculator.maximum().should.be.eql(92);
+  });
+
 });

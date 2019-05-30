@@ -13,7 +13,10 @@ export default class StatsCalculator {
   }
 
   maximum(): number {
-    return 0;
+    if (this.list.length === 0) return 0;
+    return this.list.reduce((max, item) => {
+      return item > max ? item : max;
+    }, this.list[0]);
   }
 
   size(): number {

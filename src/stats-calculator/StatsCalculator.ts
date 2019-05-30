@@ -6,7 +6,9 @@ export default class StatsCalculator {
   }
 
   minimum(): number {
-    return 0;
+    return this.list.reduce((min, item) => {
+      return item < min ? item : min;
+    }, 0);
   }
 
   maximum(): number {

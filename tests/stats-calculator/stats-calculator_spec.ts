@@ -6,4 +6,10 @@ describe('Stats Calculator', () => {
     const statsCalculator = new StatsCalculator([]);
     statsCalculator.minimum().should.be.eql(0);
   });
+
+  it('maximum of an empty list is zero', () => {
+    const statsCalculator = new StatsCalculator([]);
+    statsCalculator.maximum().should.be.eql(0);
+  });
+
 });

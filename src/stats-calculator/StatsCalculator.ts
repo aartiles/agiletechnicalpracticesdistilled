@@ -8,4 +8,9 @@ export default class StatsCalculator {
   minimum(): number {
     return 0;
   }
+
+  maximum(): number {
+    return 0;
+  }
+
 }

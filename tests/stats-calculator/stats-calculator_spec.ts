@@ -17,4 +17,9 @@ describe('Stats Calculator', () => {
     statsCalculator.size().should.be.eql(0);
   });
 
+  it('avg of an empty list is zero', () => {
+    const statsCalculator = new StatsCalculator([]);
+    statsCalculator.avg().should.be.eql(0);
+  });
+
 });

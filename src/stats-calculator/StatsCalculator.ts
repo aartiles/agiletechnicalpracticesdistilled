@@ -17,4 +17,8 @@ export default class StatsCalculator {
     return 0;
   }
 
+  avg(): number {
+    return 0;
+  }
+
 }

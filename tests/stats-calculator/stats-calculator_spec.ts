@@ -43,4 +43,9 @@ describe('Stats Calculator', () => {
     statsCalculator.maximum().should.be.eql(92);
   });
 
+  it('should compute size', () => {
+    const statsCalculator = new StatsCalculator([6, 9, 15, -2, 92, 11]);
+    statsCalculator.size().should.be.eql(6);
+  });
+
 });

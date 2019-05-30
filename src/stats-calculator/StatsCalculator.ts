@@ -20,7 +20,7 @@ export default class StatsCalculator {
   }
 
   size(): number {
-    return 0;
+    return this.list.length;
   }
 
   avg(): number {

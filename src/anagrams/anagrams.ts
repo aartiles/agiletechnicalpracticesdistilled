@@ -1,3 +1,3 @@
-export default function anagrams(s: string): string {
-  return s;
+export default function anagrams(s: string): Array<string> {
+  return [s];
 }

@@ -22,7 +22,7 @@ describe('Anagrams', () => {
     anagrams('abc').should.be.eql(['abc', 'acb', 'bac', 'bca', 'cab', 'cba']);
   });
 
-  xit('anagram of a 4 characters word', () => {
+  it('anagram of a 4 characters word', () => {
     anagrams('biro').should.be.eql([
       'biro', 'bior', 'brio', 'broi',
       'boir', 'bori', 'ibro', 'ibor',
@@ -30,7 +30,7 @@ describe('Anagrams', () => {
       'rbio', 'rboi', 'ribo', 'riob',
       'roib', 'robi', 'obir', 'obri',
       'oibr', 'oirb', 'orbi', 'orib'
-    ]);
+    ].sort());
   });
 
 });

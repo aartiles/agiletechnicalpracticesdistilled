@@ -22,4 +22,7 @@ describe('Roman Numerals', () => {
     romanNumeral(5).should.be.eql('V');
   });
 
+  it('roman of 6 is VI', () => {
+    romanNumeral(6).should.be.eql('VI');
+  });
 });

@@ -5,13 +5,14 @@ export default function anagrams(s: string): Array<string> {
     return words;
   }
   else {
-
-    return [s,  swapChars(s, 1, 2), swapChars(s, 0, 2)];
+    addWord(words, s, 1, 2);
+    addWord(words, s, 0, 2);
   }
+  return words;
 }
 
 function addWord(words: Array<string>, s: string, pos1: number, pos2: number): void {
-  const newWord = swapChars(s, 0, 1);
+  const newWord = swapChars(s, pos1, pos2);
   if (words.indexOf(newWord) < 0) words.push(newWord);
 }
 

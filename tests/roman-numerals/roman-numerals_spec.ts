@@ -25,4 +25,8 @@ describe('Roman Numerals', () => {
   it('roman of 6 is VI', () => {
     romanNumeral(6).should.be.eql('VI');
   });
+
+  it('roman of 7 is VII', () => {
+    romanNumeral(7).should.be.eql('VII');
+  });
 });

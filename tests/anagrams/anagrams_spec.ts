@@ -10,8 +10,12 @@ describe('Anagrams', () => {
     anagrams('aa').should.be.eql(['aa']);
   });
 
-  it('anagram of a a 2 characters word is the same and other with characters interchanges', () => {
+  it('anagram of a 2 characters word is the same and other with characters interchanges', () => {
     anagrams('ab').should.be.eql(['ab', 'ba']);
+  });
+
+  it('anagram of a 3 characters word, 2 of them are the same', () => {
+    anagrams('aab').should.be.eql(['aab', 'aba', 'baa']);
   });
 
 });

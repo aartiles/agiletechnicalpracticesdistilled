@@ -5,15 +5,31 @@ export default function anagrams(s: string): Array<string> {
     return words;
   }
   else {
-    addWord(words, s, 1, 2);
-    addWord(words, s, 0, 2);
+    let foundNew = false;
+    do {
+      foundNew = combineWords(words);
+    } while(foundNew);
   }
-  return words;
+  return words.sort();
 }
 
-function addWord(words: Array<string>, s: string, pos1: number, pos2: number): void {
+function combineWords(words: Array<string>): boolean {
+  let foundNew = false;
+  words.forEach((word) => {
+    foundNew = foundNew || addWord(words, word, 0, 1);
+    foundNew = foundNew || addWord(words, word, 0, 2);
+    foundNew = foundNew || addWord(words, word, 1, 2);
+  });
+  return foundNew;
+}
+
+function addWord(words: Array<string>, s: string, pos1: number, pos2: number): boolean {
   const newWord = swapChars(s, pos1, pos2);
-  if (words.indexOf(newWord) < 0) words.push(newWord);
+  if (words.indexOf(newWord) < 0) {
+    words.push(newWord);
+    return true;
+  }
+  return false;
 }
 
 function swapChars(s: string, pos1: number, pos2: number): string {

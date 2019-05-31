@@ -1,9 +1,6 @@
 export default function anagrams(s: string): Array<string> {
   const words = [s];
-  let foundNew = false;
-  do {
-    foundNew = combineWords(words);
-  } while(foundNew);
+  while(combineWords(words));
   return words.sort();
 }
 

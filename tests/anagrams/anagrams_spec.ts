@@ -18,4 +18,14 @@ describe('Anagrams', () => {
     anagrams('aab').should.be.eql(['aab', 'aba', 'baa']);
   });
 
+  it('anagram of a 4 characters word', () => {
+    anagrams('biro').should.be.eql(['biro', 'bior', 'brio', 'broi',
+      'boir', 'bori', 'ibro', 'ibor',
+      'irbo', 'irob', 'iobr', 'iorb',
+      'rbio', 'rboi', 'ribo', 'riob',
+      'roib', 'robi', 'obir', 'obri',
+      'oibr', 'oirb', 'orbi', 'orib'
+    ]);
+  });
+
 });

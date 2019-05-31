@@ -5,11 +5,9 @@ export default function anagrams(s: string): Array<string> {
 }
 
 function combineWords(words: Array<string>): boolean {
-  let foundNew = false;
-  words.forEach((word) => {
-    foundNew = foundNew || combineWord(words, word);
-  });
-  return foundNew;
+  return words.reduce((foundNew, word) => {
+    return foundNew || combineWord(words, word);
+  }, false);
 }
 
 function combineWord(words: Array<string>, word: string): boolean {

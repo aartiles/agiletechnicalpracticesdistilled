@@ -1,12 +1,39 @@
+
+const baseDigits = [
+  { a: 1000, r: 'M' },
+  { a: 100, r: 'C' },
+  { a: 10, r: 'X' },
+  { a: 1, r: 'I' }
+];
+
+const halfDigits = [
+  { a: 500, r: 'D' },
+  { a: 50, r: 'L' },
+  { a: 5, r: 'V' }
+];
+
 export default function romanNumeral(n: number): string {
-  if (n <= 3) return fill(n, 'I');
-  else if (n === 4) return 'IV';
-  else if (n >= 5 && n < 9) return `V${fill(n - 5, 'I')}`;
-  else if (n === 9) return 'IX';
-  else if (n >= 10 && n < 20) return `X${fill(n - 10, 'I')}`;
-  else if (n >= 20) return `${fill(n / 10, 'X')}`;
+  let roman = '';
+  let remainder = n;
+  baseDigits.forEach((digit, index) => {
+    const repeat = Math.floor(remainder / digit.a);
+    remainder = remainder % digit.a;
+
+    if (repeat === 4) {
+      roman += digit.r + halfDigits[index - 1].r;
+    } else if (repeat >= 5 && repeat < 9) {
+      roman += halfDigits[index - 1].r + fill(repeat - 5, digit.r);
+    }
+    else if (repeat === 9) {
+      roman += digit.r + baseDigits[index - 1].r;
+    } else if (repeat > 0) {
+      roman += fill(repeat, digit.r);
+    }
+   
+  });
+  return roman; 
 }
 
 function fill(n: number, char: string): string {
   return Array(n).fill(char).join('');
-} 
+}

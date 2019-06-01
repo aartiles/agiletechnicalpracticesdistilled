@@ -58,4 +58,9 @@ describe('Roman Numerals', () => {
     romanNumeral(40).should.be.eql('XL');
   });
 
+  it('roman of 846 is DCCCXLVI', () => {
+    romanNumeral(846).should.be.eql('DCCCXLVI');
+    romanNumeral(1999).should.be.eql('MCMXCIX');
+    romanNumeral(2008).should.be.eql('MMVIII');
+  });
 });

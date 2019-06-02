@@ -1,4 +1,4 @@
 
 export default function romanNumeral(n: number): string {
-  return 'I'; 
+  return Array(n).fill('I').join(''); 
 }

@@ -6,4 +6,5 @@ export default function romanNumeral(n: number): string {
   else if (n > 5 && n < 9) return 'V' + Array(n - 5).fill('I').join('');
   else if (n === 9) return 'IX';
   else if (n === 10) return 'X';
+  else if (n > 10) return 'X' + Array(n - 10).fill('I').join('');;
 }

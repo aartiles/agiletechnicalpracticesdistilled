@@ -5,5 +5,6 @@ export default function romanNumeral(n: number): string {
   else if (n === 5) return 'V';
   else if (n > 5 && n < 9) return romanNumeral(5) + romanNumeral(n - 5);
   else if (n === 10) return 'X';
-  else if (n > 10) return 'X' + romanNumeral(n-10);
+  else if (n > 10 && n < 40) return 'X' + romanNumeral(n-10);
+  else return 'XL';
 }

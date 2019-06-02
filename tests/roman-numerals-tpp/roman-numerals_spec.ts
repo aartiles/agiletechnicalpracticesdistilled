@@ -54,4 +54,8 @@ describe('Roman Numerals', () => {
     romanNumeral(30).should.be.eql('XXX');
   });
 
+  it('roman of 40 is XL', () => {
+    romanNumeral(40).should.be.eql('XL');
+  });
+
 });

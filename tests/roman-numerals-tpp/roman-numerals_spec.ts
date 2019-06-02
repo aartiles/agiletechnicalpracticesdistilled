@@ -19,6 +19,6 @@ describe('Roman Numerals', () => {
   });
 
   it('roman of 5 is V', () => {
-    romanNumeral(4).should.be.eql('V');
+    romanNumeral(5).should.be.eql('V');
   });
 });

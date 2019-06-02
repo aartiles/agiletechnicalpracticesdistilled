@@ -38,4 +38,8 @@ describe('Roman Numerals', () => {
     romanNumeral(9).should.be.eql('IX');
   });
 
+  it('roman of 10 is X', () => {
+    romanNumeral(10).should.be.eql('X');
+  });
+
 });

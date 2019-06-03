@@ -8,7 +8,7 @@ export default function romanNumeral(n: number): string {
   else if (is4Like(n)) return romanNumeral(n / 4) + romanNumeral((n + n / 4));
   else if (n <= 3) return Array(n).fill('I').join('');
 
-  else if (n === 4 || n == 9) return romanNumeral(1) + romanNumeral(n + 1);
+  else if (n == 9) return romanNumeral(1) + romanNumeral(n + 1);
 
   else if (n > 5 && n < 9) return romanNumeral(5) + romanNumeral(n - 5);
 

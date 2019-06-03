@@ -66,4 +66,8 @@ describe('Roman Numerals', () => {
     romanNumeral(50).should.be.eql('L');
   });
 
+  it('roman of 60 is L', () => {
+    romanNumeral(60).should.be.eql('LX');
+  });
+
 });

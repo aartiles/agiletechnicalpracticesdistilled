@@ -6,9 +6,9 @@ export default function romanNumeral(n: number): string {
   if (isBase10(n)) return BASE10[Math.log10(n)];
   else if (isLike(5, n)) return HALFBASE10[Math.log10(n / 5)];
   else if (isLike(4, n)) return romanNumeral(n / 4) + romanNumeral((n + n / 4));
+  else if (isLike(9, n)) return romanNumeral(n / 9) + romanNumeral((n + n / 9));
   else if (n <= 3) return Array(n).fill('I').join('');
 
-  else if (n == 9) return romanNumeral(1) + romanNumeral(n + 1);
 
   else if (n > 5 && n < 9) return romanNumeral(5) + romanNumeral(n - 5);
 
@@ -16,7 +16,6 @@ export default function romanNumeral(n: number): string {
 
   else if (n >= 60 && n < 90) return romanNumeral(50) + romanNumeral(n - 50);
 
-  else if (n === 90) return romanNumeral(10) + romanNumeral(100);
 
   else if (n > 100) return romanNumeral(100) + romanNumeral(n - 100);
 

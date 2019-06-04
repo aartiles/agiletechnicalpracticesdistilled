@@ -90,8 +90,10 @@ describe('Roman Numerals', () => {
     romanNumeral(200).should.be.eql('CC');
   });
 
-  it('roman of 846 is DCCCXLVI', () => {
+  it('roman solve any number', () => {
     romanNumeral(846).should.be.eql('DCCCXLVI');
+    romanNumeral(1999).should.be.eql('MCMXCIX');
+    romanNumeral(2008).should.be.eql('MMVIII');
   });
 
 });

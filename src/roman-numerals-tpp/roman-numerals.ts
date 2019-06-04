@@ -13,9 +13,9 @@ export default function romanNumeral(n: number): string {
   else if (isLike(7, n)) return romanNumeral(5 * n / 7) + romanNumeral(n - 5 * n / 7);
   else if (isLike(8, n)) return romanNumeral(5 * n / 8) + romanNumeral(n - 5 * n / 8);
   else if (isLike(9, n)) return romanNumeral(n / 9) + romanNumeral((n + n / 9));
-  else return romanNumeral(Math.floor(n / 1000) * 1000) +
-    romanNumeral(Math.floor(n / 100) * 100) +
-    romanNumeral(Math.floor(n / 10) * 10 - Math.floor(n / 100) * 100) + // 840
+  else return romanNumeral(digit(n, 1000)) +
+    romanNumeral(digit(n % 1000, 100)) +
+    romanNumeral(digit(n % 100, 10)) +
     romanNumeral(n % 10);
 }
 
@@ -25,4 +25,8 @@ function isBase10(n: number): boolean {
 
 function isLike(like: number, n: number): boolean {
   return n % like === 0 && isBase10(n / like);
+}
+
+function digit(n: number, divider: number): number {
+  return Math.floor(n / divider) * divider;
 }

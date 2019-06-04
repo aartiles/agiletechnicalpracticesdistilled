@@ -16,7 +16,6 @@ export default function romanNumeral(n: number): string {
 
   else if (n > 10 && n < 40) return romanNumeral(10) + romanNumeral(n - 10);
 
-  else if (n >= 50 && n < 90) return romanNumeral(50) + romanNumeral(n - 50);
 
   else if (n > 100) return romanNumeral(100) + romanNumeral(n - 100);
 

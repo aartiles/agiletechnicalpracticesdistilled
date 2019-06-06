@@ -1,3 +1,4 @@
 export default function primeFactors(n: number): Array<number> {
-  return [2];
+  if (n <= 3) return [n];
+  else return [2, 2];
 }

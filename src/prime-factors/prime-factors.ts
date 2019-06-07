@@ -1,6 +1,5 @@
 export default function primeFactors(n: number): Array<number> {
   if (n < 2) return [];
-  else if (n <= 3) return [n];
   else {
     const factor = nextFactor(n);
     if (factor === 1) return [n];

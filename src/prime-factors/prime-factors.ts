@@ -1,7 +1,15 @@
 export default function primeFactors(n: number): Array<number> {
   if (n < 2) return [];
   else if (n <= 3) return [n];
-  else if (n === 4) return primeFactors(2).concat(primeFactors(2));
-  else if (n === 6) return primeFactors(2).concat(primeFactors(3));
-  else if (n === 9) return primeFactors(3).concat(primeFactors(3));
+  else {
+    const factor = nextFactor(n);
+    if (factor === 1) return [n];
+    else return primeFactors(n / factor).concat(primeFactors(factor));
+  }
+}
+
+function nextFactor(n: number): number {
+  let factor = Math.floor(n / 2);
+  while (factor > 1 && n % factor !== 0) factor--;
+  return factor;
 }

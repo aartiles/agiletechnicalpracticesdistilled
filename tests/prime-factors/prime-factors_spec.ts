@@ -10,5 +10,6 @@ describe('Prime Factors', () => {
     primeFactors(4).should.be.eql([2, 2]);
     primeFactors(6).should.be.eql([2, 3]);
     primeFactors(9).should.be.eql([3, 3]);
+    primeFactors(12).should.be.eql([2, 2, 3]);
   });
 });

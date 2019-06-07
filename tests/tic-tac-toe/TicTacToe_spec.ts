@@ -19,4 +19,12 @@ describe.only('Tic Tac Toe Game', () => {
     ]);
   });
 
+  it('Players alternate placing X and O on the board', () => {
+    const game = new TicTacToe();
+    game.play('X', 1, 1);
+    should(() => {
+      game.play('X', 1, 2);
+    }).throw('Not your turn');
+  });
+
 });

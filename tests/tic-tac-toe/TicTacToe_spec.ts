@@ -27,4 +27,13 @@ describe.only('Tic Tac Toe Game', () => {
     }).throw('Not your turn');
   });
 
+  it('Players can not play at a played position', () => {
+    const game = new TicTacToe();
+    game.play('X', 1, 1);
+    should(() => {
+      game.play('O', 1, 1);
+    }).throw('Position already played');
+  });
+
+
 });

@@ -1,3 +1,14 @@
+
+const WINNER_COMBINATIONS: Array<Array<Array<number>>> = [
+  [[0, 0], [0, 1], [0, 2]],
+  [[1, 0], [1, 1], [1, 2]],
+  [[2, 0], [2, 1], [2, 2]],
+  [[0, 0], [1, 0], [2, 0]],
+  [[0, 1], [1, 1], [2, 1]],
+  [[0, 2], [1, 2], [2, 2]],
+  [[0, 0], [1, 1], [2, 2]],
+  [[0, 2], [1, 1], [2, 0]]
+];
 export default class TicTacToe {
   private nextPlayer: string;
   private board: Array<Array<string>>;
@@ -23,14 +34,24 @@ export default class TicTacToe {
   }
 
   winner(): string {
-    if (this.board[0][0] === this.board[0][1] && this.board[0][1] === this.board[0][2]) return this.board[0][0];
-    if (this.board[1][0] === this.board[1][1] && this.board[1][1] === this.board[0][2]) return this.board[1][0];
-    if (this.board[2][0] === this.board[2][1] && this.board[2][1] === this.board[0][2]) return this.board[2][0];
-    if (this.board[0][0] === this.board[1][0] && this.board[1][0] === this.board[2][0]) return this.board[0][0];
-    if (this.board[0][1] === this.board[1][1] && this.board[1][1] === this.board[2][1]) return this.board[0][1];
-    if (this.board[0][2] === this.board[1][2] && this.board[1][2] === this.board[2][2]) return this.board[0][2];
-    if (this.board[0][0] === this.board[1][1] && this.board[1][1] === this.board[2][2]) return this.board[0][0];
-    if (this.board[2][0] === this.board[1][1] && this.board[1][1] === this.board[0][2]) return this.board[2][0];
+    for (let combination of WINNER_COMBINATIONS) {
+      const winner = this.allInARow(combination);
+      if (winner !== null && winner !== '-') return winner;
+    }
     return '-';
   }
+
+
+  private allInARow(combination: Array<Array<number>>): string {
+    let winner = null;
+    for (let pos of combination) {
+      if (winner !== null && this.board[pos[0]][pos[1]] !== winner) {
+        return null;
+      }
+      winner = this.board[pos[0]][pos[1]];
+    }
+    return winner;
+
+  } 
+
 }

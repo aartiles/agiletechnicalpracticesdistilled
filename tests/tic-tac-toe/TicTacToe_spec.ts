@@ -49,4 +49,18 @@ describe.only('Tic Tac Toe Game', () => {
     game.winner().should.be.eql('X');
   });
 
+  it('If all position are filled but there are no winners then the game is draw', () => {
+    const game = new TicTacToe();
+    game.play('X', 0, 0);
+    game.play('O', 0, 2);
+    game.play('X', 0, 1);
+    game.play('O', 1, 1);
+    game.play('X', 1, 0);
+    game.play('O', 1, 2);
+    game.play('X', 2, 1);
+    game.play('O', 0, 2);
+    game.play('X', 2, 2);
+    game.result().should.be.eql('draw');
+  });
+
 });

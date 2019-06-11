@@ -41,6 +41,9 @@ export default class TicTacToe {
     return '-';
   }
 
+  result(): string {
+    return '-';
+  }
 
   private allInARow(combination: Array<Array<number>>): string {
     let winner = null;

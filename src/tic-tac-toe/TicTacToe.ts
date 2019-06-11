@@ -42,7 +42,19 @@ export default class TicTacToe {
   }
 
   result(): string {
-    return '-';
+    const winner = this.winner();
+    if (winner && winner !== '-') return winner;
+    if (this.isDraw()) return 'draw';
+    return 'playing';
+  }
+
+  private isDraw(): boolean {
+    for(let row = 0; row < 3; row++) {
+      for(let column = 0; column < 3; column++) {
+        if (this.board[row][column] === '-') return false;
+      }
+    }
+    return true;
   }
 
   private allInARow(combination: Array<Array<number>>): string {

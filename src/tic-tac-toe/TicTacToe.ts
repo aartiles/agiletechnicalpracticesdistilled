@@ -33,14 +33,6 @@ export default class TicTacToe {
     return this.board;
   }
 
-  winner(): string {
-    for (let combination of WINNER_COMBINATIONS) {
-      const winner = this.allInARow(combination);
-      if (winner !== null && winner !== '-') return winner;
-    }
-    return '-';
-  }
-
   result(): string {
     const winner = this.winner();
     if (winner && winner !== '-') return winner;
@@ -48,13 +40,12 @@ export default class TicTacToe {
     return 'playing';
   }
 
-  private isDraw(): boolean {
-    for(let row = 0; row < 3; row++) {
-      for(let column = 0; column < 3; column++) {
-        if (this.board[row][column] === '-') return false;
-      }
+  private winner(): string {
+    for (let combination of WINNER_COMBINATIONS) {
+      const winner = this.allInARow(combination);
+      if (winner !== null && winner !== '-') return winner;
     }
-    return true;
+    return '-';
   }
 
   private allInARow(combination: Array<Array<number>>): string {
@@ -67,6 +58,15 @@ export default class TicTacToe {
     }
     return winner;
 
-  } 
+  }
+
+  private isDraw(): boolean {
+    for(let row = 0; row < 3; row++) {
+      for(let column = 0; column < 3; column++) {
+        if (this.board[row][column] === '-') return false;
+      }
+    }
+    return true;
+  }
 
 }

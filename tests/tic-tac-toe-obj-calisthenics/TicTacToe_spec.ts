@@ -22,4 +22,14 @@ describe.only('Tic Tac Toe Game', () => {
     game.pieceAt(position).equals(pieceX).should.be.ok();
   });
 
+  it('Players alternate placing X and O on the board', () => {
+    const game = new TicTacToe();
+    const pieceX = new Piece('X');
+    game.play(pieceX, new Position(1, 1));
+    should(() => {
+      game.play(pieceX, new Position(1, 2));
+    }).throw(NotYourTurnError);
+  });
+
+
 });

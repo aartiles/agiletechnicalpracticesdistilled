@@ -5,11 +5,15 @@ export default class Piece {
     this.setPiece(name);
   }
 
-  setPiece(piece: string) {
+  private setPiece(piece: string) {
     this.name = piece;
   }
 
   equals(piece: Piece) {
     return piece.name === this.name;
+  }
+
+  nextPiece(): Piece {
+    return this.name === 'O' ? new Piece('X') : new Piece('O');
   }
 }

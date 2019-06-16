@@ -1,7 +1,7 @@
 import should from 'should';
 import TicTacToe from '../../src/tic-tac-toe/TicTacToe';
 
-describe.only('Tic Tac Toe Game', () => {
+describe('Tic Tac Toe Game', () => {
   it('X always play first', () => {
     const game = new TicTacToe();
     should(() => {

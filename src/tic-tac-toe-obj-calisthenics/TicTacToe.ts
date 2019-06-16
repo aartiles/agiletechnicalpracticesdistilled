@@ -1,9 +1,13 @@
-import Player from "./Player";
+import Piece from "./Piece";
 import Position from "./Position";
 import NotYourTurnError from "./NotYourTurnError";
 
 export default class TicTacToe {
-  play(player: Player, position: Position) {
-    throw new NotYourTurnError();
+  play(piece: Piece, position: Position) {
+    if (piece.equals(new Piece('O'))) throw new NotYourTurnError();
+  }
+
+  pieceAt(position: Position): Piece {
+    return new Piece('X');
   }
 }

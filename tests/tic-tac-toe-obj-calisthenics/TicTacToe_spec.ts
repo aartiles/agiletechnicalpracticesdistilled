@@ -4,6 +4,7 @@ import PieceX from '../../src/tic-tac-toe-obj-calisthenics/PieceX';
 import PieceO from '../../src/tic-tac-toe-obj-calisthenics/PieceO';
 import Position from '../../src/tic-tac-toe-obj-calisthenics/Position';
 import NotYourTurnError from '../../src/tic-tac-toe-obj-calisthenics/NotYourTurnError';
+import PositionAlreadyPlayedError from '../../src/tic-tac-toe-obj-calisthenics/PositionAlreadyPlayedError';
 
 describe.only('Tic Tac Toe Game', () => {
   it('X always play first', () => {
@@ -32,5 +33,14 @@ describe.only('Tic Tac Toe Game', () => {
     }).throw(NotYourTurnError);
   });
 
+  it('Players can not play at a played position', () => {
+    const game = new TicTacToe();
+    const pieceX = new PieceX();
+    game.play(pieceX, new Position(1, 1));
+    should(() => {
+      const pieceO = new PieceO();
+      game.play(pieceO, new Position(1, 1));
+    }).throw(PositionAlreadyPlayedError);
+  });
 
 });

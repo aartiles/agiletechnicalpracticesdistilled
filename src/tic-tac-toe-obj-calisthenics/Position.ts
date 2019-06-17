@@ -7,6 +7,14 @@ export default class Position {
     this.setColumn(column);
   }
 
+  row(): number {
+    return this._row;
+  }
+
+  column(): number {
+    return this._column;
+  }
+
   private setRow(row: number) {
     this._row = row;
   }

@@ -18,7 +18,7 @@ export default class Board {
     this.places[position.row()][position.column()] = piece;
   }
 
-  private pieceAt(position: Position): Piece {
+  pieceAt(position: Position): Piece {
     return this.places[position.row()][position.column()];
   }
 

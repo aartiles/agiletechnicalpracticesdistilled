@@ -20,7 +20,7 @@ export default class TicTacToe {
   }
 
   pieceAt(position: Position): Piece {
-    return new PieceX();
+    return this.board.pieceAt(position);
   }
 
   private setNextPiece(piece: Piece) {

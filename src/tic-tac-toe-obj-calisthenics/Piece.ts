@@ -1,19 +1,7 @@
-export default class Piece {
-  private name: string; 
+export default abstract class Piece {
+  abstract nextPiece(): Piece
 
-  constructor(name: string) {
-    this.setPiece(name);
-  }
-
-  private setPiece(piece: string) {
-    this.name = piece;
-  }
-
-  equals(piece: Piece) {
-    return piece.name === this.name;
-  }
-
-  nextPiece(): Piece {
-    return this.name === 'O' ? new Piece('X') : new Piece('O');
+  equals(piece: Piece) : boolean {
+    return piece.constructor.name === this.constructor.name;
   }
 }

@@ -1,12 +1,13 @@
 import Piece from "./Piece";
 import Position from "./Position";
 import NotYourTurnError from "./NotYourTurnError";
+import PieceX from "./PieceX";
 
 export default class TicTacToe {
   private nextPiece: Piece;
 
   constructor() {
-    this.nextPiece = new Piece('X');
+    this.nextPiece = new PieceX();
   }
 
   play(piece: Piece, position: Position) {
@@ -15,7 +16,7 @@ export default class TicTacToe {
   }
 
   pieceAt(position: Position): Piece {
-    return new Piece('X');
+    return new PieceX();
   }
 
   private setNextPiece(piece: Piece) {

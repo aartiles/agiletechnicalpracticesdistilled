@@ -1,13 +1,14 @@
 import should from 'should';
 import TicTacToe from '../../src/tic-tac-toe-obj-calisthenics/TicTacToe';
-import Piece from '../../src/tic-tac-toe-obj-calisthenics/Piece';
+import PieceX from '../../src/tic-tac-toe-obj-calisthenics/PieceX';
+import PieceO from '../../src/tic-tac-toe-obj-calisthenics/PieceO';
 import Position from '../../src/tic-tac-toe-obj-calisthenics/Position';
 import NotYourTurnError from '../../src/tic-tac-toe-obj-calisthenics/NotYourTurnError';
 
 describe.only('Tic Tac Toe Game', () => {
   it('X always play first', () => {
     const game = new TicTacToe();
-    const pieceO = new Piece('O');
+    const pieceO = new PieceO();
     const position = new Position(1, 1);
     should(() => {
       game.play(pieceO, position);
@@ -16,7 +17,7 @@ describe.only('Tic Tac Toe Game', () => {
 
   it('Place X correctly at 1,1', () => {
     const game = new TicTacToe();
-    const pieceX = new Piece('X');
+    const pieceX = new PieceX();
     const position = new Position(1, 1);
     game.play(pieceX, position);
     game.pieceAt(position).equals(pieceX).should.be.ok();
@@ -24,7 +25,7 @@ describe.only('Tic Tac Toe Game', () => {
 
   it('Players alternate placing X and O on the board', () => {
     const game = new TicTacToe();
-    const pieceX = new Piece('X');
+    const pieceX = new PieceX();
     game.play(pieceX, new Position(1, 1));
     should(() => {
       game.play(pieceX, new Position(1, 2));

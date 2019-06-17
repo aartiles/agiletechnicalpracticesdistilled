@@ -8,11 +8,11 @@ export default class Position {
   }
 
   row(): number {
-    return this._row;
+    return this._row - 1;
   }
 
   column(): number {
-    return this._column;
+    return this._column - 1;
   }
 
   private setRow(row: number) {

@@ -5,4 +5,9 @@ export default class PieceO extends Piece {
   nextPiece(): Piece {
     return new PieceX();
   }
+
+  canBeReplaced(): boolean {
+    return false;
+  }
+
 }

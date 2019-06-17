@@ -11,11 +11,11 @@ export default class Board {
   }
 
   place(piece: Piece, position: Position) {
-    if (this.places[position.row()][position.column()].equals(new NoPiece())) {
-      this.places[position.row()][position.column()] = piece;
-    }
-    else {
-      throw new PositionAlreadyPlayedError();
-    }
+    if (!this.pieceAt(position).canBeReplaced()) throw new PositionAlreadyPlayedError();
+    this.places[position.row()][position.column()] = piece;
+  }
+
+  private pieceAt(position: Position): Piece {
+    return this.places[position.row()][position.column()];
   }
 }

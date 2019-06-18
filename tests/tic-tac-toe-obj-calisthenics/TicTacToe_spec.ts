@@ -5,6 +5,7 @@ import PieceO from '../../src/tic-tac-toe-obj-calisthenics/PieceO';
 import Position from '../../src/tic-tac-toe-obj-calisthenics/Position';
 import NotYourTurnError from '../../src/tic-tac-toe-obj-calisthenics/NotYourTurnError';
 import PositionAlreadyPlayedError from '../../src/tic-tac-toe-obj-calisthenics/PositionAlreadyPlayedError';
+import GameResult from '../../src/tic-tac-toe-obj-calisthenics/GameResult';
 
 describe.only('Tic Tac Toe Game', () => {
   it('X always play first', () => {
@@ -50,7 +51,7 @@ describe.only('Tic Tac Toe Game', () => {
     game.play(new PieceX(), new Position(2, 1));
     game.play(new PieceO(), new Position(2, 2));
     game.play(new PieceX(), new Position(3, 1));
-    game.result().should.be.eql('X');
+    game.result().should.be.eql(new GameResult('X'));
   });
 
   it('If all position are filled but there are no winners then the game is draw', () => {
@@ -64,7 +65,7 @@ describe.only('Tic Tac Toe Game', () => {
     game.play(new PieceX(), new Position(2, 3));
     game.play(new PieceO(), new Position(3, 3));
     game.play(new PieceX(), new Position(3, 1));
-    game.result().should.be.eql('draw');
+    game.result().should.be.eql(new GameResult('draw'));
   });
 
 });

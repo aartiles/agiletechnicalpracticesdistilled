@@ -4,6 +4,7 @@ import NotYourTurnError from "./NotYourTurnError";
 import PieceX from "./PieceX";
 import Board from "./Board";
 import NoPiece from "./NoPiece";
+import GameResult from "./GameResult";
 
 const WINNER_COMBINATIONS: Array<Array<Position>> = [
   [new Position(1, 1), new Position(1, 2), new Position(0, 2)],
@@ -35,10 +36,10 @@ export default class TicTacToe {
     return this.board.pieceAt(position);
   }
 
-  result(): string {
-    if (this.board.isFull()) return 'draw';
+  result(): GameResult {
+    if (this.board.isFull()) return new GameResult('draw');
     const winnerPiece = this.winnerPiece();
-    return winnerPiece.name();
+    return new GameResult(winnerPiece.name());
   }
 
   private winnerPiece(): Piece {

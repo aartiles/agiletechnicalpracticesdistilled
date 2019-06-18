@@ -43,4 +43,15 @@ describe.only('Tic Tac Toe Game', () => {
     }).throw(PositionAlreadyPlayedError);
   });
 
+  it('Players with 3 positions played in a row wins', () => {
+    const game = new TicTacToe();
+    game.play(new PieceX(), new Position(1, 1));
+    game.play(new PieceO(), new Position(1, 2));
+    game.play(new PieceX(), new Position(2, 1));
+    game.play(new PieceO(), new Position(2, 2));
+    game.play(new PieceX(), new Position(3, 1));
+    game.result().should.be.eql('PieceX');
+  });
+
+
 });

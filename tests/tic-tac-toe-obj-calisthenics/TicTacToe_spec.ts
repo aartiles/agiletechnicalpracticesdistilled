@@ -7,7 +7,7 @@ import NotYourTurnError from '../../src/tic-tac-toe-obj-calisthenics/NotYourTurn
 import PositionAlreadyPlayedError from '../../src/tic-tac-toe-obj-calisthenics/PositionAlreadyPlayedError';
 import GameResult from '../../src/tic-tac-toe-obj-calisthenics/GameResult';
 
-describe.only('Tic Tac Toe Game', () => {
+describe('Tic Tac Toe Game', () => {
   it('X always play first', () => {
     const game = new TicTacToe();
     const pieceO = new PieceO();

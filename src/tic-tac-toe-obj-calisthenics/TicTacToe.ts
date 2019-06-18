@@ -36,6 +36,7 @@ export default class TicTacToe {
   }
 
   result(): string {
+    if (this.board.isFull()) return 'draw';
     const winnerPiece = this.winnerPiece();
     return winnerPiece.name();
   }

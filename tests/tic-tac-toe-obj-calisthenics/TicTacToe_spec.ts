@@ -50,7 +50,7 @@ describe.only('Tic Tac Toe Game', () => {
     game.play(new PieceX(), new Position(2, 1));
     game.play(new PieceO(), new Position(2, 2));
     game.play(new PieceX(), new Position(3, 1));
-    game.result().should.be.eql('PieceX');
+    game.result().should.be.eql('X');
   });
 
 

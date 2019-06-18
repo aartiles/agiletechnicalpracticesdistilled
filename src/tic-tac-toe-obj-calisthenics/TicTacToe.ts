@@ -37,7 +37,7 @@ export default class TicTacToe {
 
   result(): string {
     const winnerPiece = this.winnerPiece();
-    return winnerPiece.canBeReplaced() ? '' : winnerPiece.constructor.name;
+    return winnerPiece.name();
   }
 
   private winnerPiece(): Piece {

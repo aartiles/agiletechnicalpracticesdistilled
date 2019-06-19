@@ -1,11 +1,16 @@
-export default class GameOfLife {
-  private seed: Array<Position>;
+import Board from "./Board";
 
-  constructor(seed: Array<Position>) {
-    this.seed = seed;
+export default class GameOfLife {
+  private _board: Board;
+
+  constructor(seed: Board) {
+    this._board = seed;
   }
 
-  tick(): Array<Position> {
-    return [];
+  tick() {
+  }
+
+  board() {
+    return this._board;
   }
 }

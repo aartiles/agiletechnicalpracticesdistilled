@@ -1,7 +1,5 @@
 import Cell from "./Cell";
 
-type RulesFn = (cell: Cell, liveNeighbors: number) => Cell;
-
 const NEIGHBOR_RELATIVE_POSITIONS = [
   { row: -1, column: 0 },
   { row: -1, column: 1 },
@@ -28,20 +26,20 @@ export default class Board {
   }
 
   equals(board: Board) {
-    for (let row = 0; row < this.cells.length; row++) {
-      for (let column = 0; column < this.cells[row].length; column++) {
-        if (!this.cellAt(row, column).equals(board.cellAt(row, column))) return false;
-      }
-    }
-    return true;
+    return this.cells.reduce((equalRows, rowCells, row) => {
+      return rowCells.reduce((equalCells, cell, column) => {
+        return equalCells && cell.equals(board.cellAt(row, column));
+      }, equalRows);
+    }, true);    
   }
 
-  trasnform(rulesFn: RulesFn): Board {
-    return new Board(this.cells.map((rowCells, row) => {
+  trasnform(): Board {
+    const cells = this.cells.map((rowCells, row) => {
       return rowCells.map((cell, column) => {
-        return rulesFn(cell, this.liveNeighborsOfCellAt(row, column));
+        return cell.transform(this.liveNeighborsOfCellAt(row, column));
       });
-    })); 
+    });
+    return new Board(cells); 
   }
 
   private cellAt(row: number, column: number): Cell {

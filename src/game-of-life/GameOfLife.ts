@@ -9,27 +9,11 @@ export default class GameOfLife {
   }
 
   tick() {
-    this.board = this.board.trasnform(this.applyRules);
+    this.board = this.board.trasnform();
   }
   
   parternMatch(board: Board) {
     return this.board.equals(board);
-  }
-
-  private applyRules(cell: Cell, liveNeighbors: number): Cell {
-    if (cell.isALive() && liveNeighbors < 2) {
-      return Cell.Dead();
-    }
-    else if (cell.isALive() && (liveNeighbors === 2 || liveNeighbors === 3)) {
-      return Cell.Live();
-    }
-    else if (cell.isALive() && liveNeighbors > 3) {
-      return Cell.Dead();
-    }
-    else if (cell.isDead() && liveNeighbors === 3) {
-      return Cell.Live();
-    }
-    else return cell;
   }
   
 }

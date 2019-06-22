@@ -30,4 +30,20 @@ export default class Cell {
     return this.type === cell.type;
   }
 
+  transform(liveNeighbors: number): Cell {
+    if (this.isALive() && liveNeighbors < 2) {
+      return Cell.Dead();
+    }
+    else if (this.isALive() && (liveNeighbors === 2 || liveNeighbors === 3)) {
+      return Cell.Live();
+    }
+    else if (this.isALive() && liveNeighbors > 3) {
+      return Cell.Dead();
+    }
+    else if (this.isDead() && liveNeighbors === 3) {
+      return Cell.Live();
+    }
+    else return this;
+  }
+
 };

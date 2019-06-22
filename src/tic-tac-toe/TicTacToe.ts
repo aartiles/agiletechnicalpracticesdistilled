@@ -35,7 +35,7 @@ export default class TicTacToe {
 
   result(): string {
     const winner = this.winner();
-    if (winner) return winner;
+    if (winner && winner !== '-') return winner;
     if (this.isDraw()) return 'draw';
     return 'playing';
   }

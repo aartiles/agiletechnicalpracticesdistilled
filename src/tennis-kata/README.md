@@ -1,0 +1,1 @@
+ Solution at [my fork here](https://github.com/aartiles/Tennis-Refactoring-Kata/tree/master/typescript)

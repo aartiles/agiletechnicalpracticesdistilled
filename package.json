@@ -31,7 +31,9 @@
   "homepage": "https://github.com/aartiles/agiletechnicalpracticesdistilled#readme",
   "devDependencies": {
     "@types/mocha": "^5.2.6",
+    "@types/sinon": "^7.0.13",
     "should": "^13.2.3",
+    "sinon": "^7.3.2",
     "ts-node": "^8.1.0",
     "typescript": "^3.4.5"
   }

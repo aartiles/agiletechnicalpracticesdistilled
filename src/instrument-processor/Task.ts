@@ -1,7 +1,11 @@
 export default class Task {
-  private name: string;
+  private _name: string;
 
   constructor(name: string) {
-    this.name = name;
+    this._name = name;
+  }
+
+  name(): string {
+    return this._name;
   }
 }

@@ -12,7 +12,7 @@ export default class App implements InstrumentProcessor {
   }
 
   process(): void {
-    const task = this.taskDispacher.getTask();
+    const task = this.taskDispacher.getTask();    
     this.instrument.execute(task);
   }
 } 

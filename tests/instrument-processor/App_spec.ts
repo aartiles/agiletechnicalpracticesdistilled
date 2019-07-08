@@ -1,36 +1,11 @@
 import should from 'should';
 import sinon from 'sinon';
-import TaskDispacher from '../../src/instrument-processor/TaskDispacher';
-import Instrument, { OnErrorEventCallback, OnFinishEventCallback } from '../../src/instrument-processor/Instrument';
 import Task from '../../src/instrument-processor/Task';
 import App from '../../src/instrument-processor/App';
-import Console from '../../src/instrument-processor/Console';
 import ThereAreNoTasksError from '../../src/instrument-processor/ThereAreNoTasksError';
-
-class TaskDispacherTest implements TaskDispacher {
-  getTask(): Task {
-    return null;
-  }
-
-  finishedTask(task: Task): void {
-    
-  }
-}
-
-class InstrumentTest implements Instrument {
-  public onFinish: OnFinishEventCallback
-  public onError: OnErrorEventCallback;
-
-  execute(task: Task): void {
-
-  }
-}
-
-class ConsoleTest implements Console {
-  log(message: string): void {
-
-  }
-}
+import TaskDispacherTest from './TaskDispacherTest';
+import InstrumentTest from './InstrumentTest';
+import ConsoleTest from './ConsoleTest';
 
 describe('Instrument Processor', () => {
   it('should get the next task and execute in on the instrument', () => {

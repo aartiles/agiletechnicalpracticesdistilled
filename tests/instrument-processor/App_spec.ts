@@ -55,4 +55,20 @@ describe('Instrument Processor', () => {
     }).throw('', ThereAreNoTasksError);
   });
 
+  it('should call the dispache finishedTask when the task finish event is fired', () => {
+    const task = new Task('task1');
+    const taskDispacher = new TaskDispacherTest();
+    sinon.stub(taskDispacher, 'getTask').onFirstCall().returns(task);
+    const finishedTaskSpy = sinon.stub(taskDispacher, 'finishedTask');
+
+    const instrument = new InstrumentTest();
+    sinon.stub(instrument, 'execute').onFirstCall().callsFake(() => instrument.onFinish(task));
+
+    const app = new App(taskDispacher, instrument);    
+    app.process();
+
+    should(finishedTaskSpy.withArgs(task).calledOnce).be.ok();
+  });
+
+
 });

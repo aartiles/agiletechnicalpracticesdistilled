@@ -1,0 +1,1 @@
+ Solution at [my fork here](https://github.com/aartiles/GildedRose-Refactoring-Kata/blob/master/TypeScript/test/gilded-rose.spec.ts#L54)

@@ -11,18 +11,18 @@ class GameOfLife {
 
   nextGeneration() {
     const cells = this.expandDeadCellsFromLiveCells();
-    this.cells = cells.reduce((newGeneration, cell) => {
-      const numbersOfLiveNeighbors = this.getLiveNeighbors(cell.position());
-      if (cell.isAlive() && (numbersOfLiveNeighbors < 2 || numbersOfLiveNeighbors > 3))
-        return newGeneration;
+    this.cells = cells.reduce(this.tryToAddCellToNextGeneration, []);
+  }
 
-      if (numbersOfLiveNeighbors === 2 || numbersOfLiveNeighbors === 3) newGeneration.push(cell);
-
-      if (!cell.isAlive() && numbersOfLiveNeighbors === 3)
-        newGeneration.push(new Cell('live', cell.position()));
-
+  private tryToAddCellToNextGeneration(newGeneration: Array<Cell>, cell: Cell): Array<Cell> {
+    const numbersOfLiveNeighbors = this.getLiveNeighbors(cell.position());
+    if (cell.isAlive() && (numbersOfLiveNeighbors < 2 || numbersOfLiveNeighbors > 3))
       return newGeneration;
-    }, []);
+    if (numbersOfLiveNeighbors === 2 || numbersOfLiveNeighbors === 3)
+      newGeneration.push(cell);
+    if (!cell.isAlive() && numbersOfLiveNeighbors === 3)
+      newGeneration.push(new Cell('live', cell.position()));
+    return newGeneration;
   }
 
   private expandDeadCellsFromLiveCells(): Array<Cell> {

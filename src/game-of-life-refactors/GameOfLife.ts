@@ -1,5 +1,6 @@
 import Position from './Position';
 import Cell from './Cell';
+import LiveCell from './LiveCell';
 import Board from './Board';
 
 class GameOfLife {
@@ -10,7 +11,7 @@ class GameOfLife {
     this.board = new Board();
 
     seed.forEach(([row, column]) => {
-      const cell = new Cell('live', new Position(row, column));
+      const cell = new LiveCell(new Position(row, column));
       this.board.add(cell);
     });
   }

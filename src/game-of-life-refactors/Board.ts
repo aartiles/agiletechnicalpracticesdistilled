@@ -1,4 +1,6 @@
 import Cell from "./Cell";
+import DeadCell from "./DeadCell";
+import LiveCell from "./LiveCell";
 import Position from "./Position";
 
 export default class Board {
@@ -24,7 +26,7 @@ export default class Board {
       const neighbors = cell.position().getNeighbors();
       const newDeadCells = neighbors.reduce((deadCells, neighbor) => {
         if (!this.existsCell(expandedCells, neighbor))
-          deadCells.push(new Cell('dead', neighbor));
+          deadCells.push(new DeadCell(neighbor));
         return deadCells;
       }, []);
       return [...expandedCells, ...newDeadCells];
@@ -33,7 +35,7 @@ export default class Board {
 
   filter(filterFn: (cell: Cell) => boolean) {
     this.cells = this.cells.reduce((newGeneration, cell) => {
-      if (filterFn(cell)) newGeneration.push(new Cell('live', cell.position()));
+      if (filterFn(cell)) newGeneration.push(new LiveCell(cell.position()));
       return newGeneration;
     }, []);
   }

@@ -16,14 +16,14 @@ export default class Board {
 
   countLiveNeighbors(position: Position): number {
     return this.cells.reduce((liveNeighbors, liveCell) => {
-      if (liveCell.isAlive() && liveCell.position().isNeighbor(position)) liveNeighbors++;
+      if (liveCell.isAlive() && liveCell.isNeighbor(position)) liveNeighbors++;
       return liveNeighbors;
     }, 0);
   }
 
   expandDeadCellsFromLiveCells() {
     this.cells = this.cells.reduce((expandedCells, cell) => {
-      const neighbors = cell.position().getNeighbors();
+      const neighbors = cell.getNeighborsPosition();
       const newDeadCells = neighbors.reduce((deadCells, neighbor) => {
         if (!this.existsCell(expandedCells, neighbor))
           deadCells.push(new DeadCell(neighbor));

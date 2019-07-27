@@ -10,6 +10,14 @@ abstract class Cell {
     return this._position;
   }
 
+  isNeighbor(position: Position) {
+    return this._position.isNeighbor(position);
+  }
+
+  getNeighborsPosition(): Array<Position> {
+    return this._position.getNeighbors();
+  }
+
   abstract isAlive(): boolean;
 }
 

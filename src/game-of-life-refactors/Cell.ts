@@ -18,6 +18,8 @@ abstract class Cell {
     return this._position.getNeighbors();
   }
 
+  abstract nextGeneration(numberOfLiveNeighbors: number): Cell;
+
   abstract isAlive(): boolean;
 }
 

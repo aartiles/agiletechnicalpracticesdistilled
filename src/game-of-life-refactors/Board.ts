@@ -14,28 +14,11 @@ export default class Board {
     this.cells.push(cell);
   }
 
-  countLiveNeighbors(position: Position): number {
-    return this.cells.reduce((liveNeighbors, liveCell) => {
-      if (liveCell.isAlive() && liveCell.isNeighbor(position)) liveNeighbors++;
-      return liveNeighbors;
-    }, 0);
-  }
-
-  expandDeadCellsFromLiveCells() {
-    this.cells = this.cells.reduce((expandedCells, cell) => {
-      const neighbors = cell.getNeighborsPosition();
-      const newDeadCells = neighbors.reduce((deadCells, neighbor) => {
-        if (!this.existsCell(expandedCells, neighbor))
-          deadCells.push(new DeadCell(neighbor));
-        return deadCells;
-      }, []);
-      return [...expandedCells, ...newDeadCells];
-    }, this.cells);
-  }
-
-  filter(filterFn: (cell: Cell) => boolean) {
+  nextGeneration() {
+    this.expandDeadCellsFromLiveCells();
     this.cells = this.cells.reduce((newGeneration, cell) => {
-      if (filterFn(cell)) newGeneration.push(new LiveCell(cell.position()));
+      const numberOfLiveNeighbors = this.countLiveNeighbors(cell.position());
+      newGeneration.push(cell.nextGeneration(numberOfLiveNeighbors));
       return newGeneration;
     }, []);
   }
@@ -45,6 +28,25 @@ export default class Board {
       if (cell.isAlive()) liveCells.push(cell.position().toArray());
       return liveCells;
     }, []);
+  }
+
+  private countLiveNeighbors(position: Position): number {
+    return this.cells.reduce((liveNeighbors, liveCell) => {
+      if (liveCell.isAlive() && liveCell.isNeighbor(position)) liveNeighbors++;
+      return liveNeighbors;
+    }, 0);
+  }
+
+  private expandDeadCellsFromLiveCells() {
+    this.cells = this.cells.reduce((expandedCells, cell) => {
+      const neighbors = cell.getNeighborsPosition();
+      const newDeadCells = neighbors.reduce((deadCells, neighbor) => {
+        if (!this.existsCell(expandedCells, neighbor))
+          deadCells.push(new DeadCell(neighbor));
+        return deadCells;
+      }, []);
+      return [...expandedCells, ...newDeadCells];
+    }, this.cells);
   }
 
   private existsCell(cells: Array<Cell>, position: Position): boolean {

@@ -17,22 +17,7 @@ class GameOfLife {
   }
 
   nextGeneration() {
-    this.board.expandDeadCellsFromLiveCells();
-    this.board.filter(this.isAliveInNextGeneration.bind(this));
-  }
-
-  private isAliveInNextGeneration(cell: Cell): boolean {    
-    const numberOfLiveNeighbors = this.board.countLiveNeighbors(cell.position());
-    if (cell.isAlive() && (numberOfLiveNeighbors < 2 || numberOfLiveNeighbors > 3)) {
-      return false;
-    }
-    if (cell.isAlive() && (numberOfLiveNeighbors === 2 || numberOfLiveNeighbors === 3)) {
-      return true;
-    }
-    if (!cell.isAlive() && numberOfLiveNeighbors === 3) {
-      return true;
-    }
-    return false;
+    this.board.nextGeneration();
   }
 
   currentGeneration(): Array<Array<number>> {

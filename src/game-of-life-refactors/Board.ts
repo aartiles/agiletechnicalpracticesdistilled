@@ -1,6 +1,5 @@
 import Cell from "./Cell";
 import DeadCell from "./DeadCell";
-import LiveCell from "./LiveCell";
 import Position from "./Position";
 
 export default class Board {
@@ -11,6 +10,7 @@ export default class Board {
   }
 
   add(cell: Cell) {
+    if (this.existsCell(cell.position())) return;
     this.cells.push(cell);
   }
 
@@ -38,19 +38,16 @@ export default class Board {
   }
 
   private expandDeadCellsFromLiveCells() {
-    this.cells = this.cells.reduce((expandedCells, cell) => {
-      const neighbors = cell.getNeighborsPosition();
-      const newDeadCells = neighbors.reduce((deadCells, neighbor) => {
-        if (!this.existsCell(expandedCells, neighbor))
-          deadCells.push(new DeadCell(neighbor));
-        return deadCells;
-      }, []);
-      return [...expandedCells, ...newDeadCells];
-    }, this.cells);
+    this.cells.forEach(cell => this.addDeadNeighbors(cell));
   }
 
-  private existsCell(cells: Array<Cell>, position: Position): boolean {
-    return cells.some(cell => {
+  private addDeadNeighbors(cell: Cell) {
+    const neighbors = cell.getNeighborsPosition();
+    neighbors.forEach(neighbor => this.add(new DeadCell(neighbor)));
+  }
+
+  private existsCell(position: Position): boolean {
+    return this.cells.some(cell => {
       return cell.position().isEqual(position);
     });
   }
